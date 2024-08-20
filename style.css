@@ -1,0 +1,81 @@
+body {
+  background: rgba(153, 15, 15, 0.872);
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  font-family: arial;
+}
+#all-contents {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* navigation menu */
+nav {
+  border-radius: 10px;
+  background: rgb(255, 212, 166);
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: flex;
+  padding: 10px;
+}
+h1 {
+  display: flex;
+  align-items: center;
+  color: black;
+  flex: 1;
+  margin: 0;
+}
+#nav-ul {
+  list-style-image: none;
+}
+.nav-li {
+  display: inline-block;
+  padding: 0 10px;
+}
+a {
+  text-decoration: none;
+  background:rgba(153, 15, 15, 0.872);
+  border-radius: 10px;
+  padding: 8px;
+  color: rgb(255, 212, 166);
+  font-weight: bold;
+}
+
+/* main container area beneath menu */
+main {
+  border-radius: 10px;
+  background: white;
+  display: flex;
+}
+.sidebar {
+  margin-right: 5px;
+  padding: 10px;
+}
+.sidebar-img {
+  width: 200px;
+  border-radius: 10px;
+}
+.content {
+  flex: 1;
+  padding: 15px;
+}
+
+/* portfolio styles */
+#interests {
+  border-radius: 10px;
+  background: rgb(255, 212, 166);
+  color: rgb(0, 0, 0);
+  padding: 8px;
+  margin-right: 50px;
+}
+#interests-label {
+  background:rgba(153, 15, 15, 0.872);
+  color: rgb(255, 212, 166);
+  font-weight: bold;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+h2,
+h3 {
+  margin: 0px;
+}
