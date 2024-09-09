@@ -28,7 +28,7 @@ $(function () {
      * Comment the function call out to remove the grid
      */
 
-    // drawGrid();
+    //drawGrid();
 
     /////////////////////////////////////////////////
     //////////ONLY CHANGE BELOW THIS POINT///////////
@@ -38,8 +38,35 @@ $(function () {
     // Create platforms
     // You must decide the x position, y position, width, and height of the platforms
     // example usage: createPlatform(x,y,width,height)
-
-
+    createPlatform(0, 500, 500, 500);
+    createPlatform(750, 400, 300, 25);
+    createPlatform(500, 600, 100, 250);
+    createPlatform(600, 700, 100, 250);
+    createPlatform(1025, 600, 25, 500);
+    createPlatform(1025, 400, 25, 50);
+    createPlatform(1020, 651, 5, 4);
+    createPlatform(1021, 640, 4, 4);
+    createPlatform(1021, 630, 4, 4);
+    createPlatform(1021, 620, 4, 4);
+    createPlatform(1021, 610, 4, 4);
+    createPlatform(1021, 600, 4, 4);
+    createPlatform(1021, 660, 4, 4);
+    createPlatform(1021, 670, 4, 4);
+    createPlatform(1021, 680, 4, 4);
+    createPlatform(1021, 690, 4, 4);
+    createPlatform(1021, 700, 4, 4);
+    createPlatform(1021, 710, 4, 4);
+    createPlatform(1021, 720, 4, 4);
+    createPlatform(1021, 730, 4, 4);
+    createPlatform(1300, 620, 100, 4);
+    createPlatform(1300, 490, 100, 4);
+    createPlatform(1300, 360, 100, 4);
+    createPlatform(1300, 230, 100, 4);
+    createPlatform(1375, 100, 25, 4);
+    createPlatform(1000, 100, 300, 4);
+    createPlatform(100, 250, 1100, 4);
+    createPlatform(100, 0, 4, 250);
+    createPlatform(1196, 100, 4, 500);
 
     
     // TODO 2
@@ -48,7 +75,9 @@ $(function () {
     // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
     // example usage: createCollectable(type, x, y, gravity, bounce)
 
-
+    createCollectable('database', 900, 435, 0, 0);
+    createCollectable('max', 1100, 150, 0, 0);
+    createCollectable('grace', 150, 150, 0, 0);
 
     
     // TODO 3
@@ -57,7 +86,9 @@ $(function () {
     // Your wall choices are: 'top' 'left' 'right' and 'bottom'
     // example usage: createCannon(side, position, delay, width, height)
 
-
+    createCannon('left', 102, 1200, 10, 10);
+    createCannon('left', 675, 1200, 10, 10);
+    createCannon('bottom', 860, 1200, 10, 10);
 
     
     /////////////////////////////////////////////////
