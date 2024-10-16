@@ -9,7 +9,7 @@
 		.box {
 			width: 70px;
 			height: 70px;
-		    background-color: teal;
+		    background-color:rgb(245, 245, 237);
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
@@ -18,11 +18,17 @@
 			top: 100px;
 			/* Change me! */
 			left: 0px;
-			background-image: url("eye.png");
+			border-radius: 35px;
+			color:black;
+			border-style:solid;
+			border-width:2px;
+			border-color:black;
+
 		}
 
 		.board {
 			height: 100vh;
+			background-image: url("img/geometric_pattern.jpg");
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -46,6 +52,7 @@
 			var board = jQuery('.board');	// reference to the HTML .board element
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
 			var boardHeight = jQuery(window).height();	// the maximum Y-Coordinate of the screen
+
 
 			// Every 50 milliseconds, call the update Function (see below)
 			setInterval(update, 50);
@@ -74,7 +81,8 @@
 			var points = 0;
 			var speedX = 10;
 			var speedY = 10;
-
+			var randNum1 = Math.random() * boardWidth-70;
+			var randNum2 = Math.random() * boardHeight-70;
 
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
@@ -106,8 +114,8 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				positionX = 0;
-				positionY = 100;
+				positionX = randNum1;
+				positionY = randNum2;
 				points = points + 1;
 				if (speedX > 0) {
 					speedX = speedX + 3;
@@ -116,6 +124,12 @@
 				else if (speedX < 0) {
 					speedX = speedX - 3;
 					speedY = speedY - 3;
+				}
+				if (randNum1 > boardwidth / 2) {
+					speed = speed * -1;
+				}
+				if (randNum2 > boardheight / 2) {
+					speed = speed * -1;
 				}
 				changeBoxText(points);
 			};
