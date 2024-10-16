@@ -26,6 +26,22 @@
 
 		}
 
+		.counter {
+			width: 70px;
+			height: 70px;
+		    background-color:rgb(245, 245, 237);
+			font-size: 300%;
+			text-align: center;
+
+
+			border-radius: 10px;
+			color:black;
+			border-style:solid;
+			border-width:2px;
+			border-color:black;
+
+		}
+
 		.board {
 			height: 100vh;
 			background-image: url("img/geometric_pattern.jpg");
@@ -38,6 +54,7 @@
 <body class="board">
 	<!-- HTML for the box -->
 	<div class="box">?</div>
+	<div class="counter">0</div>
 
 	<script>
 		(function () {
@@ -50,26 +67,31 @@
 
 			var box = jQuery('.box');	// reference to the HTML .box element
 			var board = jQuery('.board');	// reference to the HTML .board element
+			var counter = jQuery('.counter');
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
 			var boardHeight = jQuery(window).height();	// the maximum Y-Coordinate of the screen
 
 
 			// Every 50 milliseconds, call the update Function (see below)
-			setInterval(update, 50);
+			var interval = setInterval(update, 50);
 
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
+			board.on('click', handleBoardClick);
 
 			// moves the Box to a new position on the screen along the X-Axis
 			function moveBoxTo(newPositionX, newPositionY) {
 				box.css("left", newPositionX);
 				box.css("top", newPositionY);
-			}
+			};
 
 			// changes the text displayed on the Box
 			function changeBoxText(newText) {
 				box.text(newText);
-			}
+			};
+			function changeCounterText(newText) {
+				counter.text(newText);
+			};
 
 			//////////////////////////////////////////////////////////////////
 			/////////////////// YOUR CODE BELOW HERE /////////////////////////
@@ -83,6 +105,7 @@
 			var speedY = 10;
 			var randNum1 = Math.random() * boardWidth-70;
 			var randNum2 = Math.random() * boardHeight-70;
+			var misclicks = 0;
 
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
@@ -117,6 +140,7 @@
 				positionX = randNum1;
 				positionY = randNum2;
 				points = points + 1;
+				changeBoxText(points);
 				if (speedX > 0) {
 					speedX = speedX + 3;
 					speedY = speedY + 3;
@@ -131,9 +155,21 @@
 				if (randNum2 > boardheight / 2) {
 					speed = speed * -1;
 				}
-				changeBoxText(points);
 			};
 
+
+			function endGame() {
+                clearInterval(interval);
+            };
+			function handleBoardClick() {
+            if (misclicks < 20) {
+				misclicks = misclicks + 1;
+			}
+			else {
+                endGame();
+			}
+            changeCounterText(misclicks);
+			};
 
 
 
