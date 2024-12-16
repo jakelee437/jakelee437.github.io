@@ -104,12 +104,23 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 3: Part 2 - Move the tree!
-            blockA.x = blockA.x - 1;
-            blockB.x = blockB.x - 1;
-            blockC.x = blockC.x - 1;
-            blockD.x = blockD.x - 1;
-            blockE.x = blockE.x - 1;
             
+            if(blocks[1].x === 67.5){
+                for(var i = 0; i < blocks.length; i++){
+                    if(i === 0){block.x = 67.5}
+                        else{block.x = blocks[i - 1].x + 67.5 * 2}
+                }
+            } else{
+                for(var i = 0; i < blocks.length; i++){blocks[i].x --;}
+            }
+
+            if(walls[1].x === 0){
+                for(var i = 0; i < walls.length; i++){wall.x = i * 1080;}
+            } else{
+                for(var i = 0; i < walls.length; i++){walls[i].x --;}
+            }
+
+
             // TODO 4: Part 2 - Parallax
             
 
