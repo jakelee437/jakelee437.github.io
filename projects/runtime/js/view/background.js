@@ -77,21 +77,6 @@ var background = function (window) {
             }
 
 
-
-            /*var wallB = draw.bitmap("img/wallTexture.png");
-            wallB.x = 1080;
-            wallB.y = groundY;
-            wallB.scaleX = 0.75;
-            wallB.scaleY = 0.75;
-            background.addChild(wallB);
-
-            var wallC = draw.bitmap("img/wallTexture.png");
-            wallC.x = 1080 * 2;
-            wallC.y = groundY;
-            wallC.scaleX = 0.75;
-            wallC.scaleY = 0.75;
-            background.addChild(wallC);*/
-
             // TODO 3: Part 1 - Add a tree
 
             var blocks = [];
@@ -105,92 +90,7 @@ var background = function (window) {
                 background.addChild(block);
                 blocks.push(block);
             }
-            
 
-
-            /*var blockB = draw.bitmap("img/wallBlock.png");
-            blockB.x = 67.5 * 3;
-            blockB.y = groundY - 67.5;
-            blockB.scaleX = 0.75;
-            blockB.scaleY = 0.75;
-            background.addChild(blockB);
-
-            var blockC = draw.bitmap("img/wallBlock.png");
-            blockC.x = 67.5 * 5;
-            blockC.y = groundY - 67.5;
-            blockC.scaleX = 0.75;
-            blockC.scaleY = 0.75;
-            background.addChild(blockC);
-
-            var blockD = draw.bitmap("img/wallBlock.png");
-            blockD.x = 67.5 * 7;
-            blockD.y = groundY - 67.5;
-            blockD.scaleX = 0.75;
-            blockD.scaleY = 0.75;
-            background.addChild(blockD);
-
-            var blockE = draw.bitmap("img/wallBlock.png");
-            blockE.x = 67.5 * 9;
-            blockE.y = groundY - 67.5;
-            blockE.scaleX = 0.75;
-            blockE.scaleY = 0.75;
-            background.addChild(blockE);
-
-            var blockF = draw.bitmap("img/wallBlock.png");
-            blockF.x = 67.5 * 11;
-            blockF.y = groundY - 67.5;
-            blockF.scaleX = 0.75;
-            blockF.scaleY = 0.75;
-            background.addChild(blockF);
-
-            var blockG = draw.bitmap("img/wallBlock.png");
-            blockG.x = 67.5 * 13;
-            blockG.y = groundY - 67.5;
-            blockG.scaleX = 0.75;
-            blockG.scaleY = 0.75;
-            background.addChild(blockG);
-
-            var blockH = draw.bitmap("img/wallBlock.png");
-            blockH.x = 67.5 * 15;
-            blockH.y = groundY - 67.5;
-            blockH.scaleX = 0.75;
-            blockH.scaleY = 0.75;
-            background.addChild(blockH);
-
-            var blockI = draw.bitmap("img/wallBlock.png");
-            blockI.x = 67.5 * 17;
-            blockI.y = groundY - 67.5;
-            blockI.scaleX = 0.75;
-            blockI.scaleY = 0.75;
-            background.addChild(blockI);
-
-            var blockJ = draw.bitmap("img/wallBlock.png");
-            blockJ.x = 67.5 * 19;
-            blockJ.y = groundY - 67.5;
-            blockJ.scaleX = 0.75;
-            blockJ.scaleY = 0.75;
-            background.addChild(blockJ);
-
-            var blockK = draw.bitmap("img/wallBlock.png");
-            blockK.x = 67.5 * 21;
-            blockK.y = groundY - 67.5;
-            blockK.scaleX = 0.75;
-            blockK.scaleY = 0.75;
-            background.addChild(blockK);
-
-            var blockL = draw.bitmap("img/wallBlock.png");
-            blockL.x = 67.5 * 23;
-            blockL.y = groundY - 67.5;
-            blockL.scaleX = 0.75;
-            blockL.scaleY = 0.75;
-            background.addChild(blockL);
-
-            var blockM = draw.bitmap("img/wallBlock.png");
-            blockM.x = 67.5 * 25;
-            blockM.y = groundY - 67.5;
-            blockM.scaleX = 0.75;
-            blockM.scaleY = 0.75;
-            background.addChild(blockM);*/
 
         } // end of render function - DO NOT DELETE
         
