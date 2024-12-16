@@ -65,14 +65,20 @@ var background = function (window) {
             
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             
-            var wallA = draw.bitmap("img/wallTexture.png");
-            wallA.x = 0;
-            wallA.y = groundY;
-            wallA.scaleX = 0.75;
-            wallA.scaleY = 0.75;
-            background.addChild(wallA);
+            var walls = [];
+            for(var i = 0; i < 4; i++){
+                var wall = draw.bitmap("img/wallTexture.png");
+                wall.x = i * 1080;
+                wall.y = groundY;
+                wall.scaleX = 0.75;
+                wall.scaleY = 0.75;
+                background.addChild(wall);
+                walls.push(wall);
+            }
 
-            var wallB = draw.bitmap("img/wallTexture.png");
+
+
+            /*var wallB = draw.bitmap("img/wallTexture.png");
             wallB.x = 1080;
             wallB.y = groundY;
             wallB.scaleX = 0.75;
@@ -84,18 +90,25 @@ var background = function (window) {
             wallC.y = groundY;
             wallC.scaleX = 0.75;
             wallC.scaleY = 0.75;
-            background.addChild(wallC);
+            background.addChild(wallC);*/
 
             // TODO 3: Part 1 - Add a tree
-            
-            var blockA = draw.bitmap("img/wallBlock.png");
-            blockA.x = 67.5;
-            blockA.y = groundY - 67.5;
-            blockA.scaleX = 0.75;
-            blockA.scaleY = 0.75;
-            background.addChild(blockA);
 
-            var blockB = draw.bitmap("img/wallBlock.png");
+            var blocks = [];
+            for(var i = 0; i < 14; i++){
+                var block = draw.bitmap("img/wallBlock.png");
+                if(i === 0){block.x = 67.5}
+                    else{block.x = blocks[i - 1].x + 67.5 * 2}
+                block.y = groundY - 67.5;
+                block.scaleX = 0.75;
+                block.scaleY = 0.75;
+                background.addChild(block);
+                blocks.push(block);
+            }
+            
+
+
+            /*var blockB = draw.bitmap("img/wallBlock.png");
             blockB.x = 67.5 * 3;
             blockB.y = groundY - 67.5;
             blockB.scaleX = 0.75;
@@ -177,7 +190,7 @@ var background = function (window) {
             blockM.y = groundY - 67.5;
             blockM.scaleX = 0.75;
             blockM.scaleY = 0.75;
-            background.addChild(blockM);
+            background.addChild(blockM);*/
 
         } // end of render function - DO NOT DELETE
         
@@ -191,9 +204,11 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 3: Part 2 - Move the tree!
-            wallA.x = wallA.x - 1;
-            wallB.x --;
-            wallC.x --;
+            blockA.x = blockA.x - 1;
+            blockB.x = blockB.x - 1;
+            blockC.x = blockC.x - 1;
+            blockD.x = blockD.x - 1;
+            blockE.x = blockE.x - 1;
             
             // TODO 4: Part 2 - Parallax
             
