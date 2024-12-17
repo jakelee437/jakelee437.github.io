@@ -98,10 +98,10 @@ var runLevels = function (window) {
       }
 
       var coin = draw.bitmap("img/coin.png");
-      coin.x = 0;
-      coin.y = 0;
-      coin.scaleX = 0.1;
-      coin.scaleY = 0.1;
+      coin.x = 0
+      coin.y = 0
+      coin.scaleX = 1
+      coin.scaleY = 1
       enemy.addChild(coin);
     }
 
