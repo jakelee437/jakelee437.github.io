@@ -19,7 +19,20 @@ var runLevels = function (window) {
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
 
-    
+    var hitZoneSize = 25;
+    var damageFromObstacle = 10;
+    var knightHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+
+    knightHitZone.x = 900;
+    knightHitZone.y = 350;
+    game.addGameItem(knightHitZone);
+
+    var obstacleImage = draw.bitmap("img/knight.png");
+    obstacleImage.x = 300;
+    obstacleImage.y = 900;
+    obstacleImage.scaleX = -0.25;
+    obstacleImage.scaleY = 0.25;
+    knightHitZone.addChild(obstacleImage);
 
     function startLevel() {
       // TODO 13 goes below here

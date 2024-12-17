@@ -30,7 +30,20 @@ var background = function (window) {
         //////////////////////////////////////////////////////////////////
         // TODO (several):
       
-        var tree
+        var walls = [];
+        var blocks = [];
+        var snow = [];
+        var upperWalls = [];
+        var upperBlocks = [];
+        var block;
+        var wall;
+        var upperBlock;
+        var upperWall;
+        var tree;
+        var tree1;
+        var tree2;
+        var snowFlake;
+
       
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
@@ -55,7 +68,7 @@ var background = function (window) {
             }
 
             var moon = draw.bitmap("img/moon.png");
-            moon.x = 1400;
+            moon.x = 1100;
             moon.y = 75;
             moon.scaleX = 0.25;
             moon.scaleY = 0.25;
@@ -65,31 +78,83 @@ var background = function (window) {
             
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             
-            var walls = [];
-            for(var i = 0; i < 4; i++){
-                var wall = draw.bitmap("img/wallTexture.png");
-                wall.x = i * 1080;
+            
+
+
+
+            // TODO 3: Part 1 - Add a tree
+
+            for(var i = 0; i < 3; i++){
+                upperWall = draw.bitmap("img/wallTextureDark.png");
+                upperWall.x = canvasWidth - i * 1080;
+                upperWall.y = 187.5;
+                upperWall.scaleX = 0.75;
+                upperWall.scaleY = 0.75;
+                background.addChild(upperWall);
+                upperWalls.push(upperWall);
+            }
+            
+            for(var i = 0; i < 11; i++){
+                upperBlock = draw.bitmap("img/wallBlockDark.png");
+                if(i === 0){upperBlock.x = canvasWidth - 67.5}
+                    else{upperBlock.x = upperBlocks[i - 1].x - 67.5 * 2}
+                upperBlock.y = 120;
+                upperBlock.scaleX = 0.75;
+                upperBlock.scaleY = 0.75;
+                background.addChild(upperBlock);
+                upperBlocks.push(upperBlock);
+            }
+
+            for(var i = 0; i < 3; i++){
+                wall = draw.bitmap("img/wallTexture.png");
+                wall.x = canvasWidth - i * 1080;
                 wall.y = groundY;
                 wall.scaleX = 0.75;
                 wall.scaleY = 0.75;
                 background.addChild(wall);
                 walls.push(wall);
             }
-
-
-            // TODO 3: Part 1 - Add a tree
-
-            var blocks = [];
-            for(var i = 0; i < 14; i++){
-                var block = draw.bitmap("img/wallBlock.png");
-                if(i === 0){block.x = 67.5}
-                    else{block.x = blocks[i - 1].x + 67.5 * 2}
+            
+            for(var i = 0; i < 11; i++){
+                block = draw.bitmap("img/wallBlock.png");
+                if(i === 0){block.x = canvasWidth - 67.5}
+                    else{block.x = blocks[i - 1].x - 67.5 * 2}
                 block.y = groundY - 67.5;
                 block.scaleX = 0.75;
                 block.scaleY = 0.75;
                 background.addChild(block);
                 blocks.push(block);
             }
+
+                tree = draw.bitmap("img/tree1.png");
+                tree.x = 400;
+                tree.y = 500;
+                tree.scaleX = 0.75;
+                tree.scaleY = 1;
+                background.addChild(tree);
+
+                tree2 = draw.bitmap("img/tree1.png");
+                tree2.x = 1000;
+                tree2.y = 430;
+                tree2.scaleX = 0.75;
+                tree2.scaleY = 0.75;
+                background.addChild(tree2);
+
+                tree1 = draw.bitmap("img/tree1.png");
+                tree1.x = 0;
+                tree1.y = 380;
+                tree1.scaleX = 1;
+                tree1.scaleY = 1;
+                background.addChild(tree1);
+
+                for(var count = 0; count <= 275; count++){
+                    snowFlake= draw.circle(Math.random(), "white", "snow", 2);
+                    snowFlake.x = canvasWidth * Math.random();
+                    snowFlake.y = canvasHeight * Math.random();
+                    background.addChild(snowFlake);
+                    snow.push(snowFlake)
+                }
+
 
 
         } // end of render function - DO NOT DELETE
@@ -105,21 +170,55 @@ var background = function (window) {
             
             // TODO 3: Part 2 - Move the tree!
             
-            if(blocks[1].x === 67.5){
-                for(var i = 0; i < blocks.length; i++){
-                    if(i === 0){block.x = 67.5}
-                        else{block.x = blocks[i - 1].x + 67.5 * 2}
+            for(var i = 0; i < walls.length; i++){
+                walls[i].x -= 4;
+                if(walls[i].x < -1080){
+                    walls[i].x = canvasWidth;
                 }
-            } else{
-                for(var i = 0; i < blocks.length; i++){blocks[i].x --;}
             }
 
-            if(walls[1].x === 0){
-                for(var i = 0; i < walls.length; i++){wall.x = i * 1080;}
-            } else{
-                for(var i = 0; i < walls.length; i++){walls[i].x --;}
+            for(var i = 0; i < blocks.length; i++){
+                blocks[i].x -= 4;
+                if(blocks[i].x < -67.5){
+                    blocks[i].x = canvasWidth;
+                }
             }
 
+            for(var i = 0; i < upperWalls.length; i++){
+                upperWalls[i].x -= 2;
+                if(upperWalls[i].x < -1080){
+                    upperWalls[i].x = canvasWidth;
+                }
+            }
+
+            for(var i = 0; i < upperBlocks.length; i++){
+                upperBlocks[i].x -= 2;
+                if(upperBlocks[i].x < -67.5){
+                    upperBlocks[i].x = canvasWidth;
+                }
+            }
+
+                tree.x -= 6 ;
+                if(tree.x < -600){
+                    tree.x = canvasWidth;
+                }
+
+                tree1.x -= 9 ;
+                if(tree1.x < -800){
+                    tree1.x = canvasWidth;
+                }
+
+                tree2.x -= 8 ;
+                if(tree2.x < -600){
+                    tree2.x = canvasWidth;
+                }
+
+                for(var i = 0; i < snow.length; i++){
+                    snow[i].y += 1;
+                    if(snow[i].y > canvasHeight){
+                        snow[i].y = 0;
+                    }
+                }
 
             // TODO 4: Part 2 - Parallax
             
