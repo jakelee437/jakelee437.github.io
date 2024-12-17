@@ -69,7 +69,7 @@ var background = function (window) {
 
             var moon = draw.bitmap("img/moon.png");
             moon.x = 1100;
-            moon.y = 75;
+            moon.y = 50;
             moon.scaleX = 0.25;
             moon.scaleY = 0.25;
             background.addChild(moon);
@@ -94,7 +94,7 @@ var background = function (window) {
                 upperWalls.push(upperWall);
             }
             
-            for(var i = 0; i < 11; i++){
+            for(var i = 0; i < 10; i++){
                 upperBlock = draw.bitmap("img/wallBlockDark.png");
                 if(i === 0){upperBlock.x = canvasWidth - 67.5}
                     else{upperBlock.x = upperBlocks[i - 1].x - 67.5 * 2}
@@ -115,7 +115,7 @@ var background = function (window) {
                 walls.push(wall);
             }
             
-            for(var i = 0; i < 11; i++){
+            for(var i = 0; i < 10; i++){
                 block = draw.bitmap("img/wallBlock.png");
                 if(i === 0){block.x = canvasWidth - 67.5}
                     else{block.x = blocks[i - 1].x - 67.5 * 2}
@@ -128,21 +128,21 @@ var background = function (window) {
 
                 tree = draw.bitmap("img/tree1.png");
                 tree.x = 400;
-                tree.y = 500;
+                tree.y = 400;
                 tree.scaleX = 0.75;
                 tree.scaleY = 1;
                 background.addChild(tree);
 
                 tree2 = draw.bitmap("img/tree1.png");
                 tree2.x = 1000;
-                tree2.y = 430;
+                tree2.y = 330;
                 tree2.scaleX = 0.75;
                 tree2.scaleY = 0.75;
                 background.addChild(tree2);
 
                 tree1 = draw.bitmap("img/tree1.png");
                 tree1.x = 0;
-                tree1.y = 380;
+                tree1.y = 285;
                 tree1.scaleX = 1;
                 tree1.scaleY = 1;
                 background.addChild(tree1);
